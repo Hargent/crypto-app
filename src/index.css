@@ -1,13 +1,152 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: I-Moments;
+  src: url('./Fonts/IslandMoments-Regular.ttf');
+}
+@font-face {
+  font-family: L-Roman;
+  src: url('./Fonts/LuxuriousRoman-Regular.ttf');
+}
+@font-face {
+  font-family:Neanderthal;
+  src: url('./Fonts/Neonderthaw-Regular.ttf');
+}
+@font-face {
+  font-family: Nautigal;
+  src: url('./Fonts/TheNautigal-Regular.ttf');
+}
+@font-face {
+  font-family: Nautigal;
+  src: url('./Fonts/TheNautigal-Bold.ttf');
+  font-weight: bold;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  outline:0;
+  list-style: none;
+  text-decoration: none;
+  border:0;
+  
+}
+:root{
+  --background-color: #1f1f38;
+  --background-color-variant: #2c2c6c;
+  --background-color-light: #6575a6;
+  --primary-color: #4db5ff;
+  --primary-color-variant:#4db5ff66;
+  --white-color: #fff;
+  --light-color: #ffffff99;
+
+  --container-width-lg:75%;
+  --container-width-md:86%;
+  --container-width-sm:90%;
+
+  --transition: all 400ms ease;
+  --border:1px solid;
+}
+html{
+  scroll-behavior: -ms-smooth;
+  scroll-behavior: -webkit-smooth;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+  display:none
+}
+body{
+  font-family: L-Roman;
+  background:var(--background-color);
+  color: var(--white-color);
+  line-height:1.7;
+}
+
+/*=================================== GENERAL STYLES ============================= */
+
+.container{
+  width:var(--container-width-lg);
+  margin:0 auto;
+  margin-top:3rem;
+  
+}
+h1 ,
+h2 ,
+h3 ,
+h4 ,
+h5 {
+  font-weight: 500;
+}
+
+h1{
+  font-size:2.5rem
+}
+section{
+  margin-top: 8rem;
+}
+section>h2,
+section>h5 {
+  text-align:center;
+  color:var(--light-color)
+}
+section>h2{
+  color:var(--primary-color)
+}
+.text__light{
+  color:var(--light-color);
+}
+a{
+  color:var(--primary-color);
+  transition:var(--transition)
+}
+a:hover{
+  color: var(--white-color);
+}
+.btn{
+  -ms-width: max-content;
+  width: max-content;
+  display:inline-block;
+  color:var(--primary-color);
+  padding:0.75rem 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: var(--border) var(--primary-color);
+  transition:var(--transition); 
+}
+
+.btn:hover{
+  background: var(--white-color);
+  color:var(--background-color);
+  border-color: transparent;
+}
+.btn__primary{
+  background:var(--primary-color);
+  color:var(--background-color);
+}
+img{
+  display: block;
+  width:100%;
+  -ms-object-fit: cover;
+  object-fit: cover;
+}
+
+/* ===================== MEDIA QUERIES FOR MEDIUM SCREENS ===================== */
+@media screen and (max-width:64rem){
+  .container{
+    width:var(--container-width-md)
+  }
+  section{
+    margin-top: 6rem
+  }
+}
+
+
+/* ===================== MEDIA QUERIES FOR SMALL SCREENS ===================== */
+@media screen and (max-width:40rem){
+  .container{
+    width:var(--container-width-sm)
+  }
+  section >h2 {
+    margin-bottom: 2rem
+  }
 }

@@ -1,0 +1,19 @@
+.converter__container{
+    background:var(--background-color-variant)
+}
+.converter__content{
+    display:flex;
+    flex-direction:column;
+    gap:0.5rem;
+    margin:2rem;
+}
+.converter__primary__content{
+    display:flex;
+    gap:0.5rem;
+    margin:2rem;
+}
+.converter__secondary__content{
+    display:flex;
+    gap:0.5rem;
+    margin:2rem;
+}
