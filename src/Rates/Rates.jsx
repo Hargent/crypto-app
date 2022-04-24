@@ -2,12 +2,12 @@ import './Rates.css';
 
 import React from 'react'
 
-const Rates = ({rate, primaryCurrency, secondaryCurrency}) => {
+const Rates = ({rateData}) => {
   return (
     <section className="rates__container">
       <h3>Exchange Rate : </h3>
-        <h1>{rate}</h1>
-        <p><i>from </i>{primaryCurrency} <i>to</i> {secondaryCurrency}</p>
+        <h1>{rateData.rates}</h1>
+        <p><i>from </i>{rateData.primaryCurrencyExchanged} <i>to</i> {rateData.secondaryCurrencyExchanged}</p>
     </section>
   )
 }
