@@ -25,13 +25,13 @@ const News = () => {
 
   const feed = articles?.slice(0,10)
   return (
-    <section className="container news__container">
+    <section className="news__container">
       <h2>Trading news</h2>
       {
         feed?.map((news,_index)=>{
           return(
             <div className="news__container__content" key={_index}>
-              <a href={news.url}><h2>{news.title}</h2></a>
+              <a href={news.url}><p>{news.title}</p></a>
               <p>Source : {news.source}</p>
             </div>
           )

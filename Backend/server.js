@@ -46,7 +46,7 @@ app.post('/convert', (req, res) => {
         .then( (response)=> {
             res.json(response.data);
         }).catch( (error)=> {
-            console.error(error);
+            console.error(error.message);
         });
 })
 

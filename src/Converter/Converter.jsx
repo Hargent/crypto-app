@@ -1,6 +1,6 @@
 import './Converter.css';
 
-import React,{useEffect, useState} from 'react'
+import React,{useState} from 'react'
 
 import Rates from '../Rates/Rates';
 import axios from 'axios'
@@ -12,10 +12,6 @@ const Converter = () => {
     const [amount, setAmount] =useState(1)
     const [primaryCurrency, setPrimaryCurrency] =useState('USD')
     const [secondaryCurrency, setSecondaryCurrency] =useState('USD');
-    // const [rates, setRates] = useState(0)
-    // const [result, setResult] = useState(0);
-    // const [primaryCurrencyExchanged, setPrimaryCurrencyExchanged] =useState('USD')
-    // const [secondaryCurrencyExchanged, setSecondaryCurrencyExchanged] =useState('USD');
     const [rateData, setRateDate]=useState({
         rates:0,
         result:0,
@@ -55,62 +51,69 @@ const Converter = () => {
     }
     console.log(amount,primaryCurrency,secondaryCurrency)
     return (
-        <section className="container converter__container">
-            <h1>Converter</h1>
+        <section className="converter__container">
+            <h2>Currency Converter</h2>
             <div className="converter__content">
-                <div className="converter__primary__content">
+                <div className="converter__primary__content div">
                     <h3>Primary Currency : </h3>
-                    <input
-                        type="number"
-                        name="primary"
-                        value={amount.value}
-                        min='1'
-                        placeholder="Enter amount"
-                        onChange={(e)=>{setAmount(e.target.value)}}
-                    />
-                    <select 
-                        name="primary"
-                        value={primaryCurrency.value}
-                        className="currency__select__options"
-                        onChange={(e)=>{setPrimaryCurrency(e.target.value)}}
-                        >
-                            {
-                                currencies.map((currency, i) =>{
-                                    return(
-                                        <option key={i} value={currency}>{currency}</option>
-                                    )
-                                })
-                            }
-                    </select>  
+                    <div>
+                        <input
+                            type="number"
+                            name="primary"
+                            value={amount.value}
+                            min='1'
+                            placeholder="Enter amount"
+                            onChange={(e)=>{setAmount(e.target.value)}}
+                        />
+                        <select 
+                            name="primary"
+                            value={primaryCurrency.value}
+                            className="currency__select__options"
+                            onChange={(e)=>{setPrimaryCurrency(e.target.value)}}
+                            >
+                                {
+                                    currencies.map((currency, i) =>{
+                                        return(
+                                            <option key={i} value={currency}>{currency}</option>
+                                        )
+                                    })
+                                }
+                        </select>  
+                    </div>
+                    
                 </div>
-                <div className="converter__secondary__content">
+                <div className="converter__secondary__content div">
                     <h3>Secondary Currency : </h3>
-                    <input
-                        type="number"
-                        name="secondary"
-                        value={rateData.result}
-                        disabled ={true}
-                    />
-                    <select 
-                        name="currency__select"
-                        value={secondaryCurrency}
-                        className="currency__select__options"
-                        onChange={(e)=>{setSecondaryCurrency(e.target.value)}}
-                        >
-                            {
-                                currencies.map((currency, i) =>{
-                                    return(
-                                    <option key={i} value={currency}>{currency}</option>
-                                    )
-                                })
-                            }
-                    </select>  
+                    <div>
+                        <input
+                            type="number"
+                            name="secondary"
+                            value={rateData.result}
+                            disabled ={true}
+                        />
+                        <select 
+                            name="currency__select"
+                            value={secondaryCurrency}
+                            className="currency__select__options"
+                            onChange={(e)=>{setSecondaryCurrency(e.target.value)}}
+                            >
+                                {
+                                    currencies.map((currency, i) =>{
+                                        return(
+                                        <option key={i} value={currency}>{currency}</option>
+                                        )
+                                    })
+                                }
+                        </select>  
+                    </div>
                 </div>
+                <button type="submit" className="btn btn__primary" onClick={Convert}>Convert</button>
             </div>
-            <button type="submit" className="btn btn__primary" onClick={Convert}>Convert</button>
-            <Rates
-            rateData={rateData}
-            />
+            <div className="rate__container">
+                <Rates
+                rateData={rateData}
+                />
+            </div>
         </section>
     )
 }

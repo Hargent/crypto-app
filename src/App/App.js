@@ -7,8 +7,11 @@ import React from 'react';
 const App = () => {
   return (
     <div className="app__container">
-      <Converter/>
-      <News/>
+      <h1>CRYPTO DASHBOARD</h1>
+      <div className="app__container__content">
+        <Converter/>
+        <News/>
+      </div>
     </div>
   )
 }
